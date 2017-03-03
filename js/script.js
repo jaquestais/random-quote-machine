@@ -17,7 +17,7 @@ $('document').ready(function(){
 	});
 	// calls the twitter share function
 	$(".twitter-share-button").on('click', function() {		
-		let url = "https://twitter.com/intent/tweet?text=" + encodeURI(JSON.stringify(quote));
+		let url = "https://twitter.com/intent/tweet?text=" + encodeURI(JSON.stringify(quote)) + $(".author").text();
 		$(".twitter-share-button").attr("href", url);
 		}
 	);
@@ -27,8 +27,8 @@ $('document').ready(function(){
 function showQuote(a) {
 	let obj = JSON.parse(a);
 	quote = obj.quote;
-	$(".quote").html(quote);
-	$(".author").html(obj.author);
+	$(".quote").html('"' + quote + '"');
+	$(".author").html(" - " + obj.author);
 };
 
 
